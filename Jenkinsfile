@@ -22,9 +22,7 @@ pipeline {
             steps{
                 script {
                     def mvnHome = tool "maven-3.8.5"
-                    dir("/var/jenkins_home/workspace/calculator"){
                     sh "'${mvnHome}/bin/mvn' clean package"
-                    }
                 }
             }
         }
