@@ -20,10 +20,11 @@ pipeline {
 //        }
         stage("Build"){
             steps{
-                script {
-                    def mvnHome = tool "maven-3.8.5"
-                    sh "'${mvnHome}/bin/mvn' clean package"
-                }
+                  sh "./mvnw clean package"
+                //script {
+                //    def mvnHome = tool "maven-3.8.5"
+                 //   sh "'${mvnHome}/bin/mvn' clean package"
+                //}
             }
         }
     }
