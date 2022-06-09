@@ -19,17 +19,11 @@ pipeline {
 //            }
 //        }
 //        stage("Build"){
-//            steps{
+            steps{
 //                script {
-//                    def mvnHome = tool "maven-3.8.5"
-//                    sh "'${mvnHome}/bin/mvn' clean package"
+                    def mvnHome = tool "maven-3.8.5"
+                    sh "'${mvnHome}/bin/mvn' clean package"
 //                }
-        stage("Build"){
-            withMaven(
-                maven: 'maven-3.8.5'
-            ){
-                sh "mvn clean verify"
-            }
-        }
+
     }
   }
