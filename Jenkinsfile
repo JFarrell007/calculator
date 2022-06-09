@@ -18,6 +18,7 @@ pipeline {
 //                //sh "mvn clean verify"
 //            }
 //        }
+        node {
         stage("Build"){
             withMaven {
                 sh "mvn clean verify"
@@ -29,6 +30,7 @@ pipeline {
                  //   sh "'${mvnHome}/bin/mvn' clean package"
                 //}
             //}
+        }
         }
     }
 }
