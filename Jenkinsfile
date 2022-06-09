@@ -1,0 +1,32 @@
+pipeline {
+    tools {
+        maven 'maven-3.8.5'
+        jdk 'JDK11'
+    }
+    
+    agent any
+    stages {
+        stage("Checkout") {
+            steps {
+                git url: 'https://github.com/JFarrell007/calculator.git', branch: 'main',
+                credentialsId: '0c86d099-b471-4b73-bf11-9d97cca03baa'
+            }
+        }
+//        stage("Build"){
+//            steps {
+//                sh 'mvn clean package'
+//                //sh "mvn clean verify"
+//            }
+//        }
+        stage("Build"){
+            steps{
+                script {
+                    def mvnHome = tool "maven-3.8.5"
+                    dir("/var/jenkins_home/workspace/calculator"){
+                    sh "'${mvnHome}/bin/mvn' clean package"
+                    }
+                }
+            }
+        }
+    }
+}
