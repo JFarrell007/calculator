@@ -12,20 +12,12 @@ pipeline {
                 credentialsId: '0c86d099-b471-4b73-bf11-9d97cca03baa'
             }
         }
-//        stage("Build"){
-//            steps {
-//                sh 'mvn clean package'
-//                //sh "mvn clean verify"
-//            }
-//        }
         stage("Build"){
-            steps{
-               script {
-                    def mvnHome = tool "maven-3.8.5"
-                    echo $mvnHome
-                    //sh "'${mvnHome}/bin/mvn' --version"
-                }
+            steps {
+                sh 'mvn clean package'
+                //sh "mvn clean verify"
             }
+        }
     }
   }
 }
