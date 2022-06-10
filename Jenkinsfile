@@ -15,6 +15,8 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'mvn clean package'
+                junit '*/build/test-results/*.xml'
+                step([$class: 'JacocoPublisher'])
                 //sh "mvn clean verify"
             }
         }
