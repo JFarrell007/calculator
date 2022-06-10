@@ -12,4 +12,13 @@ public class Calculator {
         return a - b;
     }
     
+    public double divide(double a, double b){
+        try{
+            return a/b;
+        }
+        catch(ArithmeticException e){
+            System.out.println(e);
+            return 0;
+        }
+    }
 }

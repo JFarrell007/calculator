@@ -16,6 +16,10 @@ public class CalculatorTest {
     public void testSubtract(){
         assertEquals(5, calculator.subtract(10, 5));
     }
+    @Test
+    public void testDivide(){
+        assertEquals(5, calculator.divide(25.0,5.0));
+    }
 
     
 }
