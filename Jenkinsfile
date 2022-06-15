@@ -40,13 +40,12 @@ pipeline {
                 sleep 20
                 sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
             }
-        }
-        post {
+        }              
+    }
+         post {
             always {
                 sh "docker stop container"
             }
-        }
-              
-    }
+        }   
   }
 
