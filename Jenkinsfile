@@ -32,7 +32,12 @@ pipeline {
         }
         stage("Deploy to staging"){
             steps {
-                sh "docker run -d --rm -p 9090:8080 --name calcualtor localhost:5000/calculator &"
+                sh "docker run -d --rm -p 9090:8080 --name calcualtor localhost:5000/calculator"
+            }
+        }
+        stage("Acceptance test"){
+            steps {
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
             }
         }      
     }
