@@ -29,7 +29,12 @@ pipeline {
             steps {
                 sh "docker push localhost:5000/calculator"
             }
-        }       
+        }
+        stage("Deploy to staging"){
+            steps {
+                sh "docker run -d --rm -p 9090:9090 --name calcualtor localhost:5000/calculator"
+            }
+        }      
     }
   }
 
