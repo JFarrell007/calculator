@@ -20,6 +20,11 @@ pipeline {
                 //sh "mvn clean verify"
             }
         }
+        stage("Docker build"){
+            steps {
+                sh "docker build -t localhost:5000/calculator ."
+            }
+        }       
     }
   }
 
